@@ -7,6 +7,7 @@ public class Order {
   private Drink drinkType;
   private int numberOfSugar;
   private boolean withStick;
+  private boolean extraHot;
 
   public Order(final Drink drinkType) {
 
@@ -17,6 +18,15 @@ public class Order {
     this.drinkType = drinkType;
     this.numberOfSugar = numberOfSugar;
     this.withStick = numberOfSugar != 0;
+  }
+
+  public Order(final Drink drinkType, final boolean extraHot) {
+    this.drinkType = drinkType;
+    this.extraHot = false;
+  }
+
+  public boolean isExtraHot() {
+    return extraHot;
   }
 
   public boolean hasSugar() {

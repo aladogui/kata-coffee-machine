@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.arolla.coffeemachine.kata.types.Coffee;
+import com.arolla.coffeemachine.kata.types.Drink;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -57,6 +59,17 @@ public class OrderTest {
     assertEquals(order.getNumberOfSugar(), 0);
     order.addTwoSugar();
     assertEquals(order.getNumberOfSugar(), 2);
+  }
+
+  @Test
+  public void should_return_order_instruction_for_orange_juice(){
+    assertEquals('O', order.getDrinkType().getCode());
+  }
+
+  @Test
+  public void should_return_extraHot_order_drink(){
+    Order coffeeOrder = new Order(new Coffee(), true);
+    Assertions.assertEquals(true, coffeeOrder.isExtraHot());
   }
 
 }
