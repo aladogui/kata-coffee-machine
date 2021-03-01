@@ -6,6 +6,12 @@ public class Coffee extends Drink {
 
   private final char code ='C';
   private final float price =0.6f;
+  private final boolean isPermittedExtraHotOption = true;
+
+
+  public boolean isPermittedExtraHotOption() {
+    return isPermittedExtraHotOption;
+  }
 
   public float getPrice() {
     return price;
@@ -14,7 +20,6 @@ public class Coffee extends Drink {
   public char getCode() {
     return code;
   }
-
 
   @Override
   public String toString() {

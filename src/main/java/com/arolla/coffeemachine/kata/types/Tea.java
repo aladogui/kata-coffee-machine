@@ -6,6 +6,12 @@ public class Tea extends Drink{
 
   private final char code ='T';
   private final float price =0.4f;
+  private final boolean isPermittedExtraHotOption = true;
+
+
+  public boolean isPermittedExtraHotOption() {
+    return isPermittedExtraHotOption;
+  }
 
   public float getPrice() {
     return price;

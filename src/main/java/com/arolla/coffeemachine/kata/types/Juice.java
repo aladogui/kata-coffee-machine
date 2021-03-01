@@ -2,26 +2,24 @@ package com.arolla.coffeemachine.kata.types;
 
 import java.util.Objects;
 
-public class Chocolate extends Drink{
+public class Juice extends Drink{
 
-  private final char code ='H';
-  private final float price =0.5f;
-  private final boolean isPermittedExtraHotOption = true;
+  private final char code ='O';
+  private final float price = 0.6f;
+  private final boolean isPermittedExtraHotOption = false;
 
 
   public boolean isPermittedExtraHotOption() {
     return isPermittedExtraHotOption;
   }
 
-
-  public float getPrice() {
-    return price;
-  }
-
   public char getCode() {
     return code;
   }
 
+  public float getPrice() {
+    return price;
+  }
 
   @Override
   public boolean equals(final Object o) {
@@ -31,8 +29,8 @@ public class Chocolate extends Drink{
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    final Chocolate chocolate = (Chocolate) o;
-    return code == chocolate.code;
+    final Juice juice = (Juice) o;
+    return code == juice.code;
   }
 
   @Override
@@ -42,6 +40,6 @@ public class Chocolate extends Drink{
 
   @Override
   public String toString() {
-    return "Chocolate";
+    return "Orange juice";
   }
 }

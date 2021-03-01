@@ -8,8 +8,12 @@ public abstract class Drink {
   public abstract char getCode();
   public abstract float getPrice();
 
+  public boolean isPermittedExtraHotOption(){
+    return true;
+  }
+
   public boolean isEnoughMoney(float amount){
-    return getPrice() > amount;
+    return getPrice() >= amount;
   }
 
   public float getMissingMoney(final float insertedAmount){

@@ -20,4 +20,10 @@ public class DrinkTest {
     assertEquals(0.2f, drink.getMissingMoney(0.4f));
   }
 
+  @Test
+  public void should_return_juice_drink_code(){
+    Drink juice = new Juice();
+    Assertions.assertEquals('O', juice.getCode());
+  }
+
 }

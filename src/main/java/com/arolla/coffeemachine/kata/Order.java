@@ -22,7 +22,14 @@ public class Order {
 
   public Order(final Drink drinkType, final boolean extraHot) {
     this.drinkType = drinkType;
-    this.extraHot = false;
+    this.extraHot = extraHot && drinkType.isPermittedExtraHotOption();
+  }
+
+  public Order(final Drink drinkType, final int numberOfSugar, final boolean extraHot) {
+    this.drinkType = drinkType;
+    this.numberOfSugar = numberOfSugar;
+    this.withStick = numberOfSugar != 0;
+    this.extraHot = extraHot && drinkType.isPermittedExtraHotOption();
   }
 
   public boolean isExtraHot() {
@@ -60,6 +67,7 @@ public class Order {
 
   public String toString() {
     return this.drinkType.getCode()
+        + (this.isExtraHot() ? "h" : "")
         + ":"
         + (this.numberOfSugar != 0 ? this.numberOfSugar : "")
         + ":"
