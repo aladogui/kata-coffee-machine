@@ -4,6 +4,11 @@ public class MachineInstruction {
 
   Order order;
   DrinkMaker drinkMaker;
+  MachineStoreRepository machineStoreRepository;
+
+  public MachineInstruction() {
+    this.machineStoreRepository = new MachineStoreRepository();
+  }
 
   public String getMessage(String messageContent){
     return "M:" + messageContent;
@@ -17,6 +22,7 @@ public class MachineInstruction {
       return missingMoneyMessage;
     } else {
       drinkMaker.sendRequest(order);
+      machineStoreRepository.addOrder(order);
       return getMessage("Drink processing ...");
     }
   }

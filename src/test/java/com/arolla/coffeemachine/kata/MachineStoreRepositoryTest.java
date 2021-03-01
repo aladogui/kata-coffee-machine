@@ -28,7 +28,7 @@ public class MachineStoreRepositoryTest {
 
   @Test
   public void should_return_list_of_drink_ordered(){
-    Drink[] orderedDrink = new Drink[]{new Coffee(), new Tea(), new Juice(), new Chocolate()};
+    Drink[] orderedDrink = new Drink[]{new Coffee(), new Tea(), new Chocolate(), new Juice()};
     Assertions.assertArrayEquals(orderedDrink, machineRepository.getListOfOrderedDrinkType().toArray());
   }
 
@@ -46,7 +46,23 @@ public class MachineStoreRepositoryTest {
   public void should_return_report() {
 
     final String report =
-        "{" + "C: " + 2 + ";" + "T: " + 1 + ";" + "H: " + 1 + ";" + "O: " + 2 + "}";
+        "{"
+            + "C: "
+            + 2
+            + ";"
+            + "T: "
+            + 1
+            + ";"
+            + "H: "
+            + 1
+            + ";"
+            + "O: "
+            + 2
+            + ";"
+            + "\n Total amount of money earned : "
+            + 3.3
+            + "€ "
+            + "}";
     Assertions.assertEquals(report, machineRepository.printReport());
   }
 }
