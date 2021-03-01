@@ -6,6 +6,7 @@ public abstract class Drink {
   }
 
   public abstract char getCode();
+  public abstract float getPrice();
 
 
 }

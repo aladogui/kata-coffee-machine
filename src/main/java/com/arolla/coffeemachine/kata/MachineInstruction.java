@@ -8,5 +8,13 @@ public class MachineInstruction {
     return "M:" + messageContent;
   }
 
+  public String makeDrink(float amount, Order order){
+    return null;
+  }
+
+  public String getMissingMoneyMessage( float missingMoney){
+    return "";
+  }
+
 }
 

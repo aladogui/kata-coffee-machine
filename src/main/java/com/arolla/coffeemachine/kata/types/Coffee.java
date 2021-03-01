@@ -5,6 +5,11 @@ import java.util.Objects;
 public class Coffee extends Drink {
 
   private final char code ='C';
+  private final float price =0.6f;
+
+  public float getPrice() {
+    return price;
+  }
 
   public char getCode() {
     return code;
