@@ -74,6 +74,12 @@ public class OrderTest {
     Assertions.assertTrue(coffeeOrder.isExtraHot());
   }
 
+  @Test
+  public void should_return_order_instruction_with_extraHot_Option(){
+    Order extraHotOrder= new Order(new Coffee(),true);
+    Assertions.assertEquals("Ch::", extraHotOrder.toString());
+  }
+
 }
 
 
