@@ -6,17 +6,21 @@ import com.arolla.coffeemachine.kata.types.Coffee;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import static org.mockito.Mockito.*;
 
 public class MachineInstructionTest {
 
-  public static final String DRINK_PROCESSING = "M:Drink processing...";
+  public static final String DRINK_PROCESSING = "M:Drink processing ...";
   MachineInstruction machineInstruction;
   Order order;
 
   @Mock
   DrinkMaker drinkMaker;
+
+  @InjectMocks
+  MachineInstruction machineInstructionMock;
 
   @BeforeEach
   void setUp() {
@@ -35,6 +39,12 @@ public class MachineInstructionTest {
   @Test
   public void should_return_missing_money_message_when_enough_money(){
     Assertions.assertEquals("M:Missing € 0.4", machineInstruction.makeDrink(0.2f, order));
+  }
+
+  @Test
+  public void should_call_drinkMaker_to_make_drink(){
+    Assertions.assertEquals(DRINK_PROCESSING, machineInstructionMock.makeDrink(0.8f, order));
+    verify(drinkMaker).sendRequest(any(Order.class));
   }
 
   @Test

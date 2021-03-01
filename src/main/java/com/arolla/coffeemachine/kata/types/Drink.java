@@ -13,7 +13,7 @@ public abstract class Drink {
   }
 
   public float getMissingMoney(final float insertedAmount){
-    return 0f;
+    return isEnoughMoney(insertedAmount) ? (Math.round((getPrice() - insertedAmount)*100f)/100f) : 0.0f;
   }
 
 }
