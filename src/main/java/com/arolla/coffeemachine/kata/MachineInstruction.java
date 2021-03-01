@@ -5,6 +5,8 @@ public class MachineInstruction {
   Order order;
   DrinkMaker drinkMaker;
   MachineStoreRepository machineStoreRepository;
+  BeverageQuantityChecker beverageQuantityChecker;
+  EmailNotifier emailNotifier;
 
   public MachineInstruction() {
     this.machineStoreRepository = new MachineStoreRepository();
@@ -15,6 +17,16 @@ public class MachineInstruction {
   }
 
   public String makeDrink(float amount, Order order) {
+    if (isMissingBeverage()) {
+      if (isMissingWater()) {
+        emailNotifier.notifyMissingDrink("water");
+        return "Shortage water!";
+      }
+      if (isMissingMilk()) {
+        emailNotifier.notifyMissingDrink("milk");
+        return "Shortage milk!";
+      }
+    }
     if (order.getDrinkType().isNotEnoughMoney(amount)) {
       float missingMoney = order.getDrinkType().getMissingMoney(amount);
       String missingMoneyMessage= getMissingMoneyMessage(missingMoney);
@@ -30,6 +42,19 @@ public class MachineInstruction {
   public String getMissingMoneyMessage( float missingMoney){
     return getMessage("Missing € " + missingMoney );
   }
+
+  private boolean isMissingBeverage() {
+    return isMissingMilk() || isMissingWater();
+  }
+
+  private boolean isMissingWater() {
+    return beverageQuantityChecker.isEmpty("water") ;
+  }
+
+  private boolean isMissingMilk() {
+    return beverageQuantityChecker.isEmpty("milk") ;
+  }
+
 
 }
 
