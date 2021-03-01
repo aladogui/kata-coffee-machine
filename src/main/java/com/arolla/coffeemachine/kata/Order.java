@@ -9,28 +9,33 @@ public class Order {
   private boolean withStick;
 
   public Order(final Drink drinkType) {
+
     this.drinkType = drinkType;
   }
 
   public Order(final Drink drinkType, final int numberOfSugar) {
     this.drinkType = drinkType;
     this.numberOfSugar = numberOfSugar;
+    this.withStick = numberOfSugar != 0;
   }
 
-  public boolean hasSugar(){
-    return false;
+  public boolean hasSugar() {
+    return numberOfSugar != 0;
   }
 
-  public boolean hasStick(){
-    return false;
+  public boolean hasStick() {
+    if (hasSugar()) {
+      withStick = true;
+    }
+    return withStick;
   }
 
-  public void addOneSugar(){
-
+  public void addOneSugar() {
+    this.numberOfSugar = numberOfSugar + 1;
   }
 
-  public void addTwoSugar(){
-
+  public void addTwoSugar() {
+    this.numberOfSugar = numberOfSugar + 2;
   }
 
   public int getNumberOfSugar() {
@@ -41,8 +46,12 @@ public class Order {
     return drinkType;
   }
 
-  public String toString(){
-    return "";
+  public String toString() {
+    return this.drinkType.getCode()
+        + ":"
+        + (this.numberOfSugar != 0 ? this.numberOfSugar : "")
+        + ":"
+        + (this.withStick ? 0 : "");
   }
 
 }
