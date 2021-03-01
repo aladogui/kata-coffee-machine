@@ -31,10 +31,12 @@ public class Order {
   }
 
   public void addOneSugar() {
+    this.withStick= true;
     this.numberOfSugar = numberOfSugar + 1;
   }
 
   public void addTwoSugar() {
+    this.withStick= true;
     this.numberOfSugar = numberOfSugar + 2;
   }
 
