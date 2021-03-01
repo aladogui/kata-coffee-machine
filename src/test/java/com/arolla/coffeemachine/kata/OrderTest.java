@@ -17,6 +17,12 @@ public class OrderTest {
   }
 
   @Test
+  public void should_return_coffee_instruction_order_with_sugar(){
+    order.addOneSugar();
+    assertEquals("C:1:0",order.toString());
+  }
+
+  @Test
   public void should_add_stick_when_create_order_with_sugar(){
     order = new Order(new Coffee(), 2);
     assertTrue(order.hasStick());
