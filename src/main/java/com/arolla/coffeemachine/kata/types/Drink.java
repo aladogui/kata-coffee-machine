@@ -12,12 +12,12 @@ public abstract class Drink {
     return true;
   }
 
-  public boolean isEnoughMoney(float amount){
-    return getPrice() >= amount;
+  public boolean isNotEnoughMoney(float amount){
+    return getPrice() > amount;
   }
 
   public float getMissingMoney(final float insertedAmount){
-    return isEnoughMoney(insertedAmount) ? (Math.round((getPrice() - insertedAmount)*100f)/100f) : 0.0f;
+    return isNotEnoughMoney(insertedAmount) ? (Math.round((getPrice() - insertedAmount)*100f)/100f) : 0.0f;
   }
 
 }
