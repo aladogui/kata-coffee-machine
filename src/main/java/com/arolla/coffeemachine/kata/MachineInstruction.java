@@ -12,7 +12,9 @@ public class MachineInstruction {
   public String makeDrink(float amount, Order order) {
     if (order.getDrinkType().isEnoughMoney(amount)) {
       float missingMoney = order.getDrinkType().getMissingMoney(amount);
-      return getMissingMoneyMessage(missingMoney);
+      String missingMoneyMessage= getMissingMoneyMessage(missingMoney);
+      drinkMaker.sendMessage(missingMoneyMessage);
+      return missingMoneyMessage;
     } else {
       drinkMaker.sendRequest(order);
       return getMessage("Drink processing ...");

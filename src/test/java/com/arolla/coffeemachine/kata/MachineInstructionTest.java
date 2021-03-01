@@ -38,7 +38,9 @@ public class MachineInstructionTest {
 
   @Test
   public void should_return_missing_money_message_when_enough_money(){
-    Assertions.assertEquals("M:Missing € 0.4", machineInstruction.makeDrink(0.2f, order));
+    Assertions.assertEquals("M:Missing € 0.4", machineInstructionMock.makeDrink(0.2f, order));
+    verify(drinkMaker).sendMessage("M:Missing € 0.4");
+
   }
 
   @Test
