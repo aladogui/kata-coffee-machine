@@ -5,7 +5,7 @@ public class MachineInstruction {
   Order order;
 
   public String getMessage(String messageContent){
-    return "";
+    return "M:" + messageContent;
   }
 
 }
